@@ -14,7 +14,7 @@
         .header {
             text-align: center;
             padding: 20px 0;
-            background-color: #111;
+            background-color: #333;
             color: #fff;
         }
         .logo {
@@ -66,6 +66,25 @@
             background-color: #007bff;
             color: #fff;
             line-height: 1.6;
+        }
+        .description-toggle {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .description-toggle:hover {
+            background-color: #555;
+        }
+        .description {
+            display: none;
+            margin-top: 10px;
+        }
+        .show-description {
+            display: block;
         }
     </style>
 </head>
@@ -124,9 +143,4 @@
             toggle.addEventListener('click', () => {
                 const description = toggle.nextElementSibling;
                 description.classList.toggle('show-description');
-                toggle.textContent = description.classList.contains('show-description') ? 'Hide Description' : 'Show Description';
-            });
-        });
-    </script>
-</body>
-</html>
+                toggle.textContent = description.classList.contains('show-description') ? 'Hide Description' : 'Show
