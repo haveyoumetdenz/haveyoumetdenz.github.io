@@ -27,6 +27,17 @@
             height: 50px;
             margin-right: 10px;
         }
+        .menu {
+            text-align: center;
+            background-color: #111;
+            padding: 10px 0;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
         .container {
             display: flex;
             justify-content: center;
@@ -86,9 +97,35 @@
         .show-description {
             display: block;
         }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        .social {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .social a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .advertisements {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-size: 18px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
+    <div class="advertisements">
+        Check out our <span style="color: #007bff;">Summer Tech Deals</span> - Save up to 30% on selected products!
+    </div>
+
     <div class="header">
         <div class="logo">
             <img src="logo.png" alt="TechEmporium Logo">
@@ -97,12 +134,18 @@
         <p>Your Tech Superstore</p>
     </div>
 
-    <div class="shop-banner">
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+    </div>
+
+    <div id="home" class="shop-banner">
         <h2>Discover the Latest Tech</h2>
         <p>Explore our wide range of high-quality technology products and elevate your digital lifestyle.</p>
     </div>
     
-    <div class="container">
+    <div class="container" id="products">
         <div class="product">
             <img src="laptop.jpg" alt="Laptop">
             <div class="product-info">
@@ -137,16 +180,31 @@
         </div>
     </div>
     
+    <div id="about" class="shop-banner">
+        <h2>About Us</h2>
+        <p>We are TechEmporium, your trusted source for the latest and greatest tech products. Our mission is to provide high-quality technology solutions to enhance your digital lifestyle. With a passion for innovation and excellence, we curate a diverse range of products that cater to your tech needs.</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2023 TechEmporium. All rights reserved.</p>
+        <p class="social">
+            Follow us on:
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Instagram</a>
+        </p>
+        <p>Email: info@techemporium.com | Phone: +1 (123) 456-7890</p>
+    </div>
+    
     <script>
         const descriptionToggles = document.querySelectorAll('.description-toggle');
         descriptionToggles.forEach(toggle => {
             toggle.addEventListener('click', () => {
                 const description = toggle.nextElementSibling;
                 description.classList.toggle('show-description');
-                toggle.textContent = description.classList.contains('show-description') ? 'Hide Description' : 'Show'
-            }
-            )
-        }
-        )
-
-    
+                toggle.textContent = description.classList.contains('show-description') ? 'Hide Description' : 'Show Description';
+            });
+        });
+    </script>
+</body>
+</html>
