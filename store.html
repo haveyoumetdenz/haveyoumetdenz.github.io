@@ -9,12 +9,16 @@
             font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-image: url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
         }
         .header {
             text-align: center;
             padding: 20px 0;
-            background-color: #333;
             color: #fff;
         }
         .logo {
@@ -29,7 +33,7 @@
         }
         .menu {
             text-align: center;
-            background-color: #111;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 10px 0;
         }
         .menu a {
@@ -49,7 +53,7 @@
             width: 300px;
             margin: 20px;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
@@ -74,12 +78,37 @@
         .shop-banner {
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
+            background-color: rgba(0, 123, 255, 0.8);
             color: #fff;
             line-height: 1.6;
         }
+        .banner-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .banner-slide {
+            display: none;
+            width: 100%;
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+            animation: slide 8s infinite alternate;
+        }
+        .banner-slide.active {
+            display: block;
+        }
+        @keyframes slide {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
         .description-toggle {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             border: none;
             padding: 6px 12px;
@@ -88,7 +117,7 @@
             transition: background-color 0.3s;
         }
         .description-toggle:hover {
-            background-color: #555;
+            background-color: rgba(0, 0, 0, 0.6);
         }
         .description {
             display: none;
@@ -100,7 +129,7 @@
         .footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
         }
         .social {
@@ -112,12 +141,11 @@
             text-decoration: none;
             margin: 0 10px;
         }
-        .advertisements {
+        .office-location {
             text-align: center;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: rgba(255, 255, 255, 0.9);
             font-size: 18px;
-            font-style: italic;
         }
     </style>
 </head>
@@ -126,18 +154,26 @@
         Check out our <span style="color: #007bff;">Summer Tech Deals</span> - Save up to 30% on selected products!
     </div>
 
-    <div class="header">
-        <div class="logo">
-            <img src="logo.png" alt="TechEmporium Logo">
-            <h1>TechEmporium</h1>
+    <div class="overlay">
+        <div class="header">
+            <div class="logo">
+                <img src="logo.png" alt="TechEmporium Logo">
+                <h1>TechEmporium</h1>
+            </div>
+            <p>Your Tech Superstore</p>
         </div>
-        <p>Your Tech Superstore</p>
-    </div>
 
-    <div class="menu">
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About Us</a>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div class="banner-container">
+            <div class="banner-slide active" style="background-image: url('banner1.jpeg');"></div>
+            <div class="banner-slide" style="background-image: url('banner2.jpeg');"></div>
+            <div class="banner-slide" style="background-image: url('banner3.jpeg');"></div>
+        </div>
     </div>
 
     <div id="home" class="shop-banner">
@@ -146,43 +182,50 @@
     </div>
     
     <div class="container" id="products">
-        <div class="product">
-            <img src="laptop.jpg" alt="Laptop">
-            <div class="product-info">
-                <h2>Laptop Model X123</h2>
-                <p>Powerful laptop for work and entertainment.</p>
-                <div class="product-price">$999</div>
-                <button class="description-toggle">Show Description</button>
-                <p class="description">The Laptop Model X123 is designed to provide exceptional performance for all your computing needs.</p>
+        <div class="container" id="products">
+            <div class="product">
+                <img src="laptop.jpg" alt="Laptop">
+                <div class="product-info">
+                    <h2>Laptop Model X123</h2>
+                    <p>Powerful laptop for work and entertainment.</p>
+                    <div class="product-price">$999</div>
+                    <button class="description-toggle">Show Description</button>
+                    <p class="description">The Laptop Model X123 is designed to provide exceptional performance for all your computing needs.</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="product">
-            <img src="phone.jpg" alt="Smartphone">
-            <div class="product-info">
-                <h2>Smartphone Model S456</h2>
-                <p>High-performance smartphone with cutting-edge features.</p>
-                <div class="product-price">$699</div>
-                <button class="description-toggle">Show Description</button>
-                <p class="description">The Smartphone Model S456 offers a seamless user experience and advanced capabilities.</p>
+            
+            <div class="product">
+                <img src="phone.jpg" alt="Smartphone">
+                <div class="product-info">
+                    <h2>Smartphone Model S456</h2>
+                    <p>High-performance smartphone with cutting-edge features.</p>
+                    <div class="product-price">$699</div>
+                    <button class="description-toggle">Show Description</button>
+                    <p class="description">The Smartphone Model S456 offers a seamless user experience and advanced capabilities.</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="product">
-            <img src="headphones.jpg" alt="Headphones">
-            <div class="product-info">
-                <h2>Wireless Headphones H789</h2>
-                <p>Premium wireless headphones with noise cancellation.</p>
-                <div class="product-price">$199</div>
-                <button class="description-toggle">Show Description</button>
-                <p class="description">Experience high-quality audio and comfort with the Wireless Headphones H789.</p>
+            
+            <div class="product">
+                <img src="headphones.jpg" alt="Headphones">
+                <div class="product-info">
+                    <h2>Wireless Headphones H789</h2>
+                    <p>Premium wireless headphones with noise cancellation.</p>
+                    <div class="product-price">$199</div>
+                    <button class="description-toggle">Show Description</button>
+                    <p class="description">Experience high-quality audio and comfort with the Wireless Headphones H789.</p>
+                </div>
             </div>
-        </div>
     </div>
     
     <div id="about" class="shop-banner">
         <h2>About Us</h2>
         <p>We are TechEmporium, your trusted source for the latest and greatest tech products. Our mission is to provide high-quality technology solutions to enhance your digital lifestyle. With a passion for innovation and excellence, we curate a diverse range of products that cater to your tech needs.</p>
+    </div>
+    
+    <div class="office-location">
+        <h2>Visit Our Office</h2>
+        <p>Address: 123 Tech Street, Tech City</p>
+        <p>Phone: +1 (123) 456-7890</p>
     </div>
     
     <div class="footer">
